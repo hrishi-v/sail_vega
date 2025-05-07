@@ -130,6 +130,10 @@ function clause execute (SOP2(sdst, ssrc1, ssrc0, S_SUBB_U32)) = {
 
 function clause decode 0b10 @ 0b0000110 @ sdst : sgpr_dst_bits @ ssrc1 : sgpr_src_bits @ ssrc0 : sgpr_src_bits = Some(SOP2(sdst, ssrc1, ssrc0, S_MIN_I32))
 
+function clause execute (SOP2(sdst, ssrc1, ssrc0, S_MIN_I32)) = {
+    let ssrc0_val = SGPR_32(ssrc1, bitzero);
+}
+
 // -------- S_MAX_I32 --------
 
 function clause decode 0b10 @ 0b0000111 @ sdst : sgpr_dst_bits @ ssrc1 : sgpr_src_bits @ ssrc0 : sgpr_src_bits = Some(SOP2(sdst, ssrc1, ssrc0, S_MAX_I32))
